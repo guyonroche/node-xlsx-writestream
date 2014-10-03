@@ -268,7 +268,7 @@ Adds a cell to the row in progress.
           @_createRelationship(cell, value.hyperlink)
           return
 
-        if typeof value == 'number' or numberRegex.test(value)
+        if typeof value == 'number'
           @rowBuffer += blobs.numberCell(value, cell)
         else if value instanceof Date
           date = @_dateToOADate(value)
