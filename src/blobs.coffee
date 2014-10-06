@@ -153,11 +153,14 @@ module.exports =
 
     # Printed inside worksheet
     worksheetRels: (relationships) ->
-        out = "<hyperlinks>"
-        for rel, i in relationships
-            out += """<hyperlink ref="#{rel.cell}" r:id="rId#{i + 1}" />"""
-        out += "</hyperlinks>"
-        return out
+        if relationships.length > 0
+            out = "<hyperlinks>"
+            for rel, i in relationships
+                out += """<hyperlink ref="#{rel.cell}" r:id="rId#{i + 1}" />"""
+            out += "</hyperlinks>"
+            return out
+        else
+            return ""
 
     # Printed in xl/worksheets/_rels/sheet1.xml.rels
     externalWorksheetRels: (relationships) ->
